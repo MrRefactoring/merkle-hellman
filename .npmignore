@@ -1,6 +1,7 @@
 coverage/
 src/
 test/
+.vscode/
 
 jest.config.js
 tsconfig.json
