@@ -7,13 +7,13 @@ The Merkle–Hellman knapsack cryptosystem was one of the earliest public key cr
 Via npm:
 
 ```bash
-npm i markle-hellman
+npm i merkle-hellman
 ```
 
 via yarn:
 
 ```bash
-yarn add markle-hellman
+yarn add merkle-hellman
 ```
 
 # ⚠️ Attention!
