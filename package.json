@@ -1,0 +1,37 @@
+{
+  "name": "merkle-hellman",
+  "description": "Decoder, Encoder and Cracker for Merkle–Hellman knapsack cryptosystem",
+  "version": "1.0.0",
+  "main": "out/index.js",
+  "types": "out/index.d.ts",
+  "license": "MIT",
+  "author": "Vladislav Tupikin <mrrefactoring@yandex.ru>",
+  "keywords": [
+    "merkle-hellman",
+    "cryptosystem",
+    "knapsack",
+    "hacking",
+    "cracking",
+    "attack",
+    "merkle",
+    "hellman"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrRefactoring/merkle-hellman.git"
+  },
+  "homepage": "https://github.com/MrRefactoring/merkle-hellman#readme",
+  "scripts": {
+    "prepublishOnly": "npm run compile",
+    "compile": "tsc",
+    "test": "jest --collect-coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.1",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {}
+}
