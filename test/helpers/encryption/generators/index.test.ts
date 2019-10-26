@@ -14,6 +14,16 @@ function isSuperSequence(secretKey: bigint[]): boolean {
   return true;
 }
 
+function gcd(a: bigint, b: bigint): bigint {
+  while (b != BigInt(0)) {
+    const t = a;
+    a = b;
+    b = t % b;
+  }
+
+  return a;
+}
+
 describe('Encryption generators tests', () => {
   describe('Secret key generation', () => {
     it('should return secret key array', () => {
@@ -95,16 +105,6 @@ describe('Encryption generators tests', () => {
     it('q must be coprime with r', () => {
       const secretKey = generators.generateSecret();
       const { q, r } = generators.generateSecretPair(secretKey);
-
-      function gcd(a: bigint, b: bigint): bigint {
-        while (b != BigInt(0)) {
-          const t = a;
-          a = b;
-          b = t % b;
-        }
-
-        return a;
-      }
 
       const isCoprime = gcd(r, q) === BigInt(1) && gcd(q, r) === BigInt(1);
 
