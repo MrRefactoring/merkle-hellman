@@ -33,7 +33,7 @@ export class Cracker {
               secretPair: {
                 q,
                 r: AdvancedMath.arithmetic.multiplicativeInverse(r, q),
-              }
+              },
             };
           }
         }

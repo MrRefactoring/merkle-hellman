@@ -47,7 +47,7 @@ export class Decoder {
   ): Decoder {
     return new Decoder({
       ...keys,
-      publicKey: Encryption.generatePublicKey(keys.secretKey, keys.secretPair)
+      publicKey: Encryption.generatePublicKey(keys.secretKey, keys.secretPair),
     });
   }
 }
