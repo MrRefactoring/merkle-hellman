@@ -1,0 +1,18 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+      "max-classes-per-file": {
+          "options": [2]
+      },
+      "no-default-export": true,
+      "no-submodule-imports": {
+          "options": ["tsutils"]
+      },
+      "no-object-literal-type-assertion": false,
+      "restrict-plus-operands": true,
+      "quotemark": [true, "single"],
+      "eofline": true,
+      "no-namespace": false,
+      "no-implicit-dependencies": false
+  }
+}

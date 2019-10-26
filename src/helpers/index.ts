@@ -1,2 +1,2 @@
 export * from './encryption';
-export * from './modularInverse';
+export * from './advancedMath';

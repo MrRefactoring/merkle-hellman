@@ -2,7 +2,7 @@ import {
   Decoder,
   Encoder,
   Cracker
-} from '../src';
+} from './src';
 
 describe('Integration test', () => {
   it('Decoder + Encoder + Cracker test', () => {

@@ -1,20 +1,25 @@
-import { Encryption, modularInverse } from "./helpers";
+import { Encryption, AdvancedMath } from './helpers';
 
 export class Decoder {
   private keys: Encryption.IKeys;
+  private reversedSecret: bigint[];
+  private invertedR: bigint;
 
   constructor(keys?: Encryption.IKeys) {
     this.keys = keys || Encryption.getKeys();
+    this.reversedSecret = [...this.keys.secretKey].reverse();
+    this.invertedR = AdvancedMath.arithmetic.multiplicativeInverse(this.keys.secretPair.r, this.keys.secretPair.q);
   }
 
-  public decode(data: number[]): string {
+  public decode(data: number[] | bigint[]): string {
     return data
-      .map((number) => {
-        number = (number * this.keys.modularInverseOfR) % this.keys.q;
+      //@ts-ignore
+      .map((dataElement: number | bigint): string => {
+        let number = (BigInt(dataElement) * this.invertedR) % this.keys.secretPair.q;
 
         const binaryRepresentation: number[] = [];
 
-        this.keys.reversedSecret.forEach((element, index) => {
+        this.reversedSecret.forEach((element, index) => {
           const i = this.keys.secretKey.length - index - 1;
 
           if (number >= element) {
@@ -25,25 +30,24 @@ export class Decoder {
           }
         });
 
-        return String.fromCharCode(parseInt(binaryRepresentation.join('').padStart(8, '0'), 2));
+        return String.fromCharCode(parseInt(binaryRepresentation.join('').padStart(16, '0'), 2));
       })
       .join('');
   }
 
-  public get publicKey() {
+  public get publicKey(): bigint[] {
     return this.keys.publicKey;
   }
 
-  public static from({ secretKey, q, r }: { secretKey: number[], q: number, r: number }): Decoder {
-    const publicKey = Encryption.generatePublicKey({ secretKey, q, r });
-
+  public static from(
+    keys: {
+      secretKey: bigint[];
+      secretPair: { q: bigint, r: bigint };
+    }
+  ): Decoder {
     return new Decoder({
-      publicKey,
-      secretKey,
-      q,
-      r,
-      modularInverseOfR: modularInverse(r, q),
-      reversedSecret: [...secretKey].reverse(),
+      ...keys,
+      publicKey: Encryption.generatePublicKey(keys.secretKey, keys.secretPair)
     });
   }
 }

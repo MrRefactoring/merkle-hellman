@@ -2,7 +2,9 @@ coverage/
 src/
 test/
 .vscode/
+examples/
 
 jest.config.js
 tsconfig.json
+tslint.json
 yarn.lock
