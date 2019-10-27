@@ -7,7 +7,7 @@ export class Encoder {
         .normalize()
         .charCodeAt(0)
         .toString(2)
-        .padStart(16, '0');
+        .padStart(this.publicKey.length, '0');
 
       return binaryRepresentation
         .split('')

@@ -30,7 +30,7 @@ export class Decoder {
           }
         });
 
-        return String.fromCharCode(parseInt(binaryRepresentation.join('').padStart(16, '0'), 2));
+        return String.fromCharCode(parseInt(binaryRepresentation.join('').padStart(this.publicKey.length, '0'), 2));
       })
       .join('');
   }
