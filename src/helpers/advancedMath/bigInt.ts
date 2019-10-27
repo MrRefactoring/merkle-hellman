@@ -1,11 +1,12 @@
 const zero = BigInt(0);
 
-export const max = (...values: bigint[]): bigint | undefined => {
+export const max = (...values: number[] | bigint[]): bigint | undefined => {
   if (values.length === 0) {
     return undefined;
   }
 
-  return values.reduce((accumulator, current) =>
-    accumulator < current ? current : accumulator
+  // @ts-ignore
+  return values.reduce((accumulator: bigint, current: number | bigint) =>
+    accumulator < current ? BigInt(current) : accumulator
   );
 };

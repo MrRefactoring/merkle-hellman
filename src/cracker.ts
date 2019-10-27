@@ -12,7 +12,7 @@ export interface ICrackResult {
 }
 
 export class Cracker {
-  public crack(publicKey: bigint[]): ICrackResult {
+  public crack(publicKey: number[] | bigint[]): ICrackResult {
     const start = AdvancedMath.bigint.max(...publicKey)! + one;
     const end = (AdvancedMath.bigint.max(...publicKey)! + one) * two;
 
@@ -22,9 +22,11 @@ export class Cracker {
           continue;
         }
 
-        const secretKey = publicKey.map(key => (key * r) % q);
+        // @ts-ignore
+        const secretKey = publicKey.map((key: number | bigint) => (BigInt(key) * r) % q);
 
         if (AdvancedMath.logical.isSuperSequence(secretKey)) {
+          // @ts-ignore
           const sum = secretKey.reduce((accumulator, current) => accumulator + current);
 
           if (q > sum) {

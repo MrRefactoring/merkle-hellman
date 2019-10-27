@@ -13,8 +13,8 @@ export namespace Encryption {
     secretPair: ISecretPair;
   }
 
-  export function getKeys(): IKeys {
-    const secretKey = generateSecret();
+  export function getKeys(length?: number): IKeys {
+    const secretKey = generateSecret(length);
     const secretPair = generateSecretPair(secretKey);
     const publicKey = generatePublic(secretKey, secretPair);
 
