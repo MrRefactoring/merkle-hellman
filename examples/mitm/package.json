@@ -7,13 +7,17 @@
     "start": "",
     "compile": "tsc"
   },
+  "engines": {
+    "node": ">=12"
+  },
   "devDependencies": {
     "@types/express": "^4.17.1",
     "tslint": "^5.20.0",
     "typescript": "^3.6.4"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "express": "^4.17.1",
-    "merkle-hellman": "^1.0.0"
+    "merkle-hellman": "^2.0.0"
   }
 }
