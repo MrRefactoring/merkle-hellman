@@ -1,7 +1,7 @@
 {
   "name": "merkle-hellman",
   "description": "Decoder, Encoder and Cracker for Merkle–Hellman knapsack cryptosystem",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "out/index.js",
   "types": "out/index.d.ts",
   "license": "MIT",
