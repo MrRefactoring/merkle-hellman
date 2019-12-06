@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "lib": ["ES2015", "DOM", "ESNext.BigInt"],
+    "sourceMap": true,
+    "strict": true,
+    "baseUrl": ".",
+    "typeRoots": ["./src/assets"],
+    "paths": {
+      "assets": [
+        "src/assets/index"
+      ],
+      "components": [
+        "src/components/index"
+      ],
+      "containers": [
+        "src/containers/index"
+      ],
+      "services": [
+        "src/services/index"
+      ],
+      "assets/*": [
+        "src/assets/*"
+      ],
+      "components/*": [
+        "src/components/*"
+      ],
+      "containers/*": [
+        "src/containers/*"
+      ],
+      "services/*": [
+        "src/services/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}
